@@ -78,11 +78,9 @@ jobs:
             echo "Release $VERSION already exists."
             exit
           fi
-          mv release/x86_64-pc-windows-gnu/template.exe release/x86_64-pc-windows-gnu.exe
-          mv release/x86_64-unknown-linux-gnu/template release/x86_64-unknown-linux-gnu
 
           hub release create --commitish '${{ github.sha }}' \
             --message "$VERSION" \
-            --attach release/template-x86_64-pc-windows-gnu.exe \
-            --attach release/template-x86_64-unknown-linux-gnu \
+            --attach release/x86_64-pc-windows-gnu.exe \
+            --attach release/x86_64-unknown-linux-gnu \
             "v$VERSION"
