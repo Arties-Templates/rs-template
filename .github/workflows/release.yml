@@ -67,7 +67,7 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/download-artifact@v2
         with:
           path: release/
@@ -78,8 +78,8 @@ jobs:
             echo "Release $VERSION already exists."
             exit
           fi
-          mv release/x86_64-pc-windows-gnu/template.exe release/arc-x86_64-pc-windows-gnu.exe
-          mv release/x86_64-unknown-linux-gnu/template release/arc-x86_64-unknown-linux-gnu
+          mv release/x86_64-pc-windows-gnu/template.exe release/x86_64-pc-windows-gnu.exe
+          mv release/x86_64-unknown-linux-gnu/template release/x86_64-unknown-linux-gnu
 
           hub release create --commitish '${{ github.sha }}' \
             --message "$VERSION" \
