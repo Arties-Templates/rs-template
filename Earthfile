@@ -13,8 +13,8 @@ build-windows:
   FROM +install
 
   RUN rustup target add x86_64-pc-windows-gnu
-  COPY --dir src manifest.xml build.rs Cargo.lock Cargo.toml ./
-  RUN RUSTFLAGS='--cfg target_os="windows"' cargo build --target x86_64-pc-windows-gnu --release 
+  COPY --dir src manifest.xml icon.ico build.rs Cargo.lock Cargo.toml ./
+  RUN cargo build --target x86_64-pc-windows-gnu --release 
   SAVE ARTIFACT ./target/x86_64-pc-windows-gnu/release/template.exe template.exe AS LOCAL ./release/
 
 build-linux:
