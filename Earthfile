@@ -12,6 +12,8 @@ install:
 build-windows:
   FROM +install
 
+  RUN RUSTFLAGS='--cfg target_os="windows"'
+
   RUN rustup target add x86_64-pc-windows-gnu
   COPY --dir src build.rs Cargo.lock Cargo.toml ./
   RUN cargo build --target x86_64-pc-windows-gnu --release 
