@@ -71,17 +71,18 @@ jobs:
           path: release/
       - env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish
         run: |
           VERSION="$(cargo pkgid | cut -d# -f2 | cut -d: -f2)"
           if hub release show "v$VERSION" &> /dev/null; then
-            echo "Release v$VERSION already exists."
+            echo "Release $VERSION already exists."
             exit
           fi
           mv release/x86_64-pc-windows-gnu/template.exe release/arc-x86_64-pc-windows-gnu.exe
           mv release/x86_64-unknown-linux-gnu/template release/arc-x86_64-unknown-linux-gnu
 
           hub release create --commitish '${{ github.sha }}' \
-            --message "v$VERSION" \
-            --attach release/arc-x86_64-pc-windows-gnu.exe \
-            --attach release/arc-x86_64-unknown-linux-gnu \
+            --message "$VERSION" \
+            --attach release/template-x86_64-pc-windows-gnu.exe \
+            --attach release/template-x86_64-unknown-linux-gnu \
             "v$VERSION"
