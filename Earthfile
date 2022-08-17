@@ -5,7 +5,7 @@ WORKDIR /template
 # Install packages and CLI dependencies here
 install:
   RUN apk update
-  RUN apk add pkgconfig build-base zlib openssl-dev mingw-w64-gcc mingw-w64-gcc
+  RUN apk add pkgconfig build-base zlib openssl-dev mingw-w64-gcc
 
 # Build phases
 
