@@ -30,7 +30,7 @@ jobs:
       run: earthly +build-windows --use-inline-cache --save-inline-cache
     - uses: actions/upload-artifact@v2
       with:
-        name: x86_64-pc-windows-gnu
+        name: x86_64-pc-windows-gnu.exe
         path: ${{ github.workspace }}/release/
         if-no-files-found: error
         retention-days: 7
