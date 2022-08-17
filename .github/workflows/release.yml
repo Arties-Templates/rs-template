@@ -31,7 +31,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: x86_64-pc-windows-gnu
-        path: release/template.exe
+        path: $GITHUB_WORKSPACE/release/template.exe
         if-no-files-found: error
   build-linux:
     runs-on: ubuntu-latest
@@ -49,7 +49,8 @@ jobs:
         fi
         git checkout -b "$branch" || true
     - name: Download latest earthly
-      run: "sudo /bin/sh -c 'wget https://github.com/earthly/earthly/releases/download/v0.6.21/earthly-linux-amd64 -O /usr/local/bin/earthly && chmod +x /usr/local/bin/earthly'"
+      run: |
+        "sudo /bin/sh -c 'wget https://github.com/earthly/earthly/releases/download/v0.6.21/earthly-linux-amd64 -O /usr/local/bin/earthly && chmod +x /usr/local/bin/earthly'"
     - name: Earthly version
       run: earthly --version
     - name: Run build
@@ -57,7 +58,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: x86_64-unknown-linux-gnu
-        path: release/template
+        path: $GITHUB_WORKSPACE/release/template
         if-no-files-found: error
   upload:
     runs-on: ubuntu-latest
