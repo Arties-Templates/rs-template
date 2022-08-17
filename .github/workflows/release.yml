@@ -27,7 +27,7 @@ jobs:
     - name: Earthly version
       run: earthly --version
     - name: Run build
-      run: earthly --ci +build-windows
+      run: earthly +build-windows --use-inline-cache --save-inline-cache
     - uses: actions/upload-artifact@v2
       with:
         name: x86_64-pc-windows-gnu
@@ -54,7 +54,7 @@ jobs:
     - name: Earthly version
       run: earthly --version
     - name: Run build
-      run: earthly --ci +build-linux
+      run: earthly +build-linux --use-inline-cache --save-inline-cache
     - uses: actions/upload-artifact@v2
       with:
         name: x86_64-unknown-linux-gnu
