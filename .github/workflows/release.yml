@@ -89,7 +89,7 @@ jobs:
           mv release/x86_64-pc-windows-gnu/template.exe release/x86_64-pc-windows-gnu/x86_64-pc-windows-gnu.exe
 
           hub release create --commitish '${{ github.sha }}' \
-            --message "$steps.git-cliff.outputs.changelog" \
+            --message "$VERSION" \
             --attach release/x86_64-pc-windows-gnu/x86_64-pc-windows-gnu.exe \
             --attach release/x86_64-unknown-linux-gnu/x86_64-unknown-linux-musl \
-            "$VERSION"
+            '${{ steps.git-cliff.outputs.changelog }}'
