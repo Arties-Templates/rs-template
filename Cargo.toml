@@ -8,7 +8,7 @@ build = "build.rs"
 FileDescription = "template description :^)"
 
 [dependencies]
-color-eyre = "0.6.2"
+color-eyre = { version = "0.6", default-features = false }
 
 [build-dependencies]
 # winres project

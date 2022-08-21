@@ -1,4 +1,4 @@
-use color_eyre::{eyre::eyre, Report};
+use color_eyre::{eyre::{eyre, Context}, Report, Help};
 
 fn main() -> Result<(), Report> {
   color_eyre::install()?;
