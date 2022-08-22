@@ -2,9 +2,8 @@ name: Release executables
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    tags:
+      - '*.*.*'
 
 jobs:
   build-windows:
