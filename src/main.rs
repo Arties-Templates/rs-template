@@ -1,6 +1,6 @@
-use color_eyre::{eyre::{eyre, Context}, Report, Help};
+use color_eyre::{eyre::{eyre, Context}, Result};
 
-fn main() -> Result<(), Report> {
+fn main() -> Result<()> {
   color_eyre::install()?;
 
   println!("Hello, World!");
