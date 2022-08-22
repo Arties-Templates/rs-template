@@ -1,27 +1,4 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base",
-    "group:allNonMajor",
-    "schedule:daily"
-  ],
-  "labels": [
-    "dependencies"
-  ],
-  "packageRules": [
-    {
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
-      "matchCurrentVersion": "!/^0/",
-      "addLabels": [
-        "minor"
-      ]
-    }
-  ],
-  "lockFileMaintenance": {
-    "enabled": true
-  },
-  "automerge": true
+  "extends": "github>ArtieFuzzz/files"
 }
