@@ -1,14 +1,14 @@
 extern crate winres;
 
 fn main() {
-    // skipcq: PYL-W0622
+    // skipcq: PYL-W1015
     if std::env::var("CARGO_CFG_TARGET_OS").unwrap() != "windows" {
         return;
     }
 
     // only build the resource for release builds
     // as calling rc.exe might be slow
-    // skipcq: PYL-W0622
+    // skipcq: PYL-W1015
     if std::env::var("PROFILE").unwrap() == "release" {
         let mut res = winres::WindowsResource::new();
         if cfg!(unix) {
