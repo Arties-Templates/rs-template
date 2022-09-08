@@ -1,9 +1,12 @@
-use color_eyre::{eyre::{eyre, Context}, Result};
+use color_eyre::{
+    eyre::{eyre, Context},
+    Result,
+};
 
 fn main() -> Result<()> {
-  color_eyre::install()?;
+    color_eyre::install()?;
 
-  println!("Hello, World!");
+    println!("Hello, World!");
 
-  Ok(())
+    Ok(())
 }
