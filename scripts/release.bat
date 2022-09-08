@@ -1,1 +1,0 @@
-zx https://raw.githubusercontent.com/ArtieFuzzz/files/main/scripts/release.mjs
